@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<head>
+<style>
+
+.grid-container-single{
+    display:grid;
+
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    justify-items: center;
+    
+    background-color: black;
+    
+    padding: 10px;
+    padding-top: 0px;
+    grid-gap: 10px;
+    
+}
+.grid-container-dual{
+    display:grid;
+    margin: auto;
+    /*grid-template-columns: 600px 600px;
+    grid-template-rows: 400px 400px;*/
+
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+
+    justify-items: center;
+    /*
+    grid-gap: 10px;
+    background-color: #2196F3;
+    border: 1px solid red;
+    padding: 10px;
+    */
+    
+    
+    background-color:black;
+    
+    padding: 10px;
+    grid-gap: 10px;
+    
+}
+.grid-container-single > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px;
+
+}
+.grid-container-dual > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px;
+  font-size: 30px;
+}
+
+.secret{
+
+    bottom:10px;
+    left:50px;
+}
+
+</style>
+</head>
+<html>
+    <body style="background-color:black;">
+        <center>
+            <h1>Kiss my buns</h1>
+            <p1>I like cheese</p1>
+            <div class="grid-container-dual">
+                <img onmouseover="this.src='NumberOneHover.png'" onmouseout="this.src='NumberOne.png'" src="NumberOne.png" >
+                <img onmouseover="this.src='NumberOneHover.png'" onmouseout="this.src='NumberTwo.png'" src="NumberTwo.png" >
+                <img onmouseover="this.src='NumberOneHover.png'" onmouseout="this.src='NumberThree.png'" src="NumberThree.png" >
+                <img onmouseover="this.src='NumberOneHover.png'" onmouseout="this.src='NumberFour.png'" src="NumberFour.png" >
+            </div>
+            <div class="grid-container-single">
+                <img onmouseover="this.src='NumberOneHover.png'" onmouseout="this.src='NumberFive.png'" src="NumberFive.png" >
+            </div>
+        </center>
+        <div class ="secret">
+            <img onmouseover="this.src='static.gif'" onmouseout="this.src='PitchBlack.png'" src="PitchBlack.png">
+        </div>
+
+
+    </body>
+</html>

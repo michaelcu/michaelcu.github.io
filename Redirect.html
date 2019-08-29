@@ -1,0 +1,339 @@
+    <!DOCTYPE html>
+<style>
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+}
+.warningText{
+        display: inline;
+       margin: 0;
+       padding: 0;
+       border: 0;
+       -webkit-animation-name: warning;
+       -webkit-animation-duration: 5s;
+       animation-name: warning;
+       animation-duration: 5s;
+       animation-delay: 0s;
+       animation-iteration-count: infinite; 
+}
+
+.spazzOut{
+    display: inline;
+       margin: 0;
+       padding: 0;
+       border: 0;
+       -webkit-animation-name: spazz;
+       -webkit-animation-duration: 5s;
+       animation-name: spazz;
+       animation-duration: 5s;
+       animation-delay: 0s;
+       animation-iteration-count: infinite; 
+}
+
+.command{
+    display: inline;
+       margin: 0;
+       padding: 0;
+       border: 0;
+       -webkit-animation-name: leave;
+       -webkit-animation-duration: 5s;
+       animation-name: leave;
+       animation-duration: 5s;
+       animation-delay: 0s;
+       animation-iteration-count: infinite; 
+}
+
+.blinking{
+    display: inline;
+       margin: 0;
+       padding: 0;
+       border: 0;
+       -webkit-animation-name: blinking;
+       -webkit-animation-duration: 5s;
+       animation-name: blinking;
+       animation-duration: 5s;
+       animation-delay: 0s;
+       animation-iteration-count: infinite; 
+}
+
+
+        /*file:///C:/Users/Micha/Documents/redirect.html*/
+   
+   @keyframes warning {
+       0%{
+           opacity: 0;
+       }
+        19%{
+            opacity: 1;
+        }
+        15% {
+           transform: skewY(-10deg) skewX(-50deg);
+           width:500px;
+       }
+       19% {
+           transform: skewY(-140deg) skewX(-90deg);
+           width:500px;
+           height:1000px;
+           color: white;
+       }
+
+       20% {
+           /*transform: skewY(-120deg) skewX(-40deg);
+           height: 100px;
+           width: 50px;
+           background-color:white;*/
+           transform: skewY(0deg) skewX(0deg);
+           height:auto;
+           width: auto;
+
+       }
+
+       49% {
+        content: "You SHOULDN'T BE HERE.";
+           transform: skewY(0deg) skewX(0deg);
+           height:auto;
+           width: auto;
+
+       }
+
+       50% {
+           transform: skewY(-120deg) skewX(-40deg);
+           height: 100px;
+           width: 50px;
+           font-size: 50px;
+       }
+
+       65% {
+           transform: skewY(90deg) skewX(50deg);
+           height: 500px;
+           width: 500px;
+           font-size: 100px;
+       }
+
+       69% {
+           transform: skewY(-120deg) skewX(-40deg);
+           height: 100px;
+           width: 50px;
+           font-size: 50px;
+       }
+
+       70% {
+           transform: skewY(-245deg) skewX(70deg);
+           height: 750px;
+           width: 200px;
+           font-size: 700px;
+       }
+
+       78% {
+           transform: skewY(-180deg) skewX(-240deg);
+           height: 200px;
+           width: 100px;
+           font-size: 2000px;
+       }
+
+       80% {
+        transform: skewY(90deg) skewX(50deg);
+           height: 500px;
+           width: 500px;
+           font-size:500px;
+       }
+       98% {
+        transform: skewY(90deg) skewX(50deg);
+           height: 500px;
+           width: 500px;
+           font-size:500px;
+       }
+       80%{
+            opacity:0;
+       }
+       100%{
+           opacity:0;
+       }
+
+   }
+
+   /*
+   @keyframes spazz{
+    from, 0% {
+        width:100%;
+        height: 100%;
+       }
+       4%{
+           width:100%;
+           height:100%;
+       }
+       15% {
+           transform: skewY(-10deg) skewX(-50deg);
+           width:500px;
+       }
+       19% {
+           transform: skewY(-140deg) skewX(-90deg);
+           width:500px;
+           height:1000px;
+           color: white;
+
+           
+       }
+       20%{
+            top:0%;
+            left:25%;
+       }
+       49%{
+            top:150%;
+            left:25%;
+       }
+       50% {
+           transform: skewY(-120deg) skewX(-40deg);
+           height: 100px;
+           width: 50px;
+           font-size: 50px;
+       }
+
+       65% {
+           transform: skewY(90deg) skewX(50deg);
+           height: 500px;
+           width: 500px;
+           font-size: 100px;
+       }
+
+       69% {
+           transform: skewY(-120deg) skewX(-40deg);
+           height: 100px;
+           width: 50px;
+           font-size: 50px;
+       }
+
+       70% {
+           transform: skewY(-245deg) skewX(70deg);
+           height: 750px;
+           width: 200px;
+           font-size: 700px;
+       }
+
+       78% {
+           transform: skewY(-180deg) skewX(-240deg);
+           height: 200px;
+           width: 100px;
+           font-size: 2000px;
+       }
+
+       80% {
+        transform: skewY(90deg) skewX(50deg);
+           height: 500px;
+           width: 500px;
+           font-size:500px;
+       }
+       98% {
+        transform: skewY(90deg) skewX(50deg);
+           height: 500px;
+           width: 500px;
+           font-size:500px;
+       }
+       to, 99%{
+                
+       }
+   }
+   */
+
+   @keyframes spazz{
+       from, 0%{
+            width:50%;
+            height:100%;
+            top:-25%;
+            left:20%;
+       }
+
+       80%{
+            width:50%;
+            height:100%;
+            top:50%;
+            left:20%;
+       }
+       81%{
+           opacity:0;
+       }
+       100%{
+           opacity: 0;
+       }
+   }
+
+   @keyframes leave{
+       0%{
+            opacity:0;
+       }
+       78%{
+           opacity:0;
+       }
+       79%{
+           opacity:1;
+       }
+        80%{
+            content:"Leave.";
+            color:white;
+        }
+        100%{
+            content:"Leave.";
+            color:white;
+        }
+   }
+
+   @keyframes blinking{
+       from, 0%{
+           opacity:0;
+       }
+        25%{
+           opacity:0;
+       }
+       26%{
+           opacity:1;
+           background-color:white;
+       }
+       28%{
+           opacity:0;
+       }
+       79%{
+           opacity:0;
+       }
+       80%{
+           height:100%;
+           width:100%;
+            opacity:.7;
+            background-color:black;
+       }
+        to, 100%{
+           opacity: .7;
+           height:100%;
+           width:100%;
+           background-color:black;
+        }
+   }
+
+</style>
+<head>
+        <meta http-equiv="Refresh" content="5;url=Practice Webpage.html">
+</head>
+</html>
+
+<body style="background-color:black">
+    <center>
+        <img src="static.gif" style="width:100%">
+        <div class="centered spazzOut" style = "color:white">
+            GET OUT. GET OUT.GET OUT. GET OUT.GET OUT. GET OUT.GET OUT. 
+            GET OUT.GET OUT. GET OUT.GET OUT. GET OUT. GET OUT.GET OUT.
+            GET OUT. GET OUT.GET OUT. GET OUT.GET OUT. GET OUT.GET OUT. 
+            GET OUT.GET OUT. GET OUT.GET OUT. GET OUT. GET OUT.GET OUT.
+            GET OUT. GET OUT.GET OUT. GET OUT.GET OUT. GET OUT.GET OUT. 
+            GET OUT.GET OUT. GET OUT.GET OUT. GET OUT. GET OUT.GET OUT.
+            GET OUT. GET OUT.GET OUT. GET OUT.GET OUT. GET OUT.GET OUT. 
+            GET OUT.GET OUT. GET OUT.GET OUT. GET OUT. GET OUT.GET OUT.</div>
+        <div class="centered warningText" style="color:white">You shouldn't be here.</div>
+        <div class="centered blinking"></div>
+        <div class="centered command" style="color:white">LEAVE</div>
+
+
+    </center>
+</body>
+
