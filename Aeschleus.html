@@ -3,6 +3,58 @@
 <head>
 <style>
 
+
+.firImg{
+    width:300px;
+    height:300px;
+    background-image: url("images/NumberOne.png");
+}
+
+.firImg:hover{
+    
+    background-image: url("images/Hover.png");
+}
+
+.secImg{
+    width:300px;
+    height:300px;
+    background-image: url("images/NumberTwo.png");
+}
+
+.secImg:hover{
+    background-image: url("images/Hover.png");
+}
+
+.thrImg{
+    width:300px;
+    height:300px;
+    background-image: url("images/NumberThree.png");
+}
+
+.thrImg:hover{
+    background-image: url("images/Hover.png");
+}
+
+.fouImg{
+    width:300px;
+    height:300px;
+    background-image: url("images/NumberFour.png");
+}
+
+.fouImg:hover{
+    background-image: url("images/Hover.png");
+}
+
+.fifImg{
+    width:300px;
+    height:300px;
+    background-image: url("images/NumberFive.png");
+}
+
+.fifImg:hover{
+    background-image: url("images/Hover.png");
+}
+
 /*Grid for the "Fifth"*/
 .grid-container-single{
     display:grid;
@@ -23,20 +75,11 @@
 .grid-container-dual{
     display:grid;
     margin: auto;
-    /*grid-template-columns: 600px 600px;
-    grid-template-rows: 400px 400px;*/
 
     grid-template-columns: auto auto;
     grid-template-rows: auto auto;
 
     justify-items: center;
-    /*
-    grid-gap: 10px;
-    background-color: #2196F3;
-    border: 1px solid red;
-    padding: 10px;
-    */
-    
     
     background-color:black;
     
@@ -72,15 +115,15 @@
         <center>
             <!--1st to 4th-->
             <div class="grid-container-dual">
-                <img onmouseover="this.src='images/NumberOneHover.png'" onmouseout="this.src='images/NumberOne.png'" src="images/NumberOne.png" >
-                <img onmouseover="this.src='images/NumberOneHover.png'" onmouseout="this.src='images/NumberTwo.png'" src="images/NumberTwo.png" >
-                <img onmouseover="this.src='images/NumberOneHover.png'" onmouseout="this.src='images/NumberThree.png'" src="images/NumberThree.png" >
-                <img onmouseover="this.src='images/NumberOneHover.png'" onmouseout="this.src='images/NumberFour.png'" src="images/NumberFour.png" >
+                <div class="firImg"></div>
+                <div class="secImg"></div>
+                <div class="thrImg"></div>
+                <div class="fouImg"></div>
             </div>
 
             <!--5th-->
             <div class="grid-container-single">
-                <img onmouseover="this.src='images/NumberOneHover.png'" onmouseout="this.src='images/NumberFive.png'" src="images/NumberFive.png" >
+                <div class="fifImg"></div>
             </div>
         </center>
 
