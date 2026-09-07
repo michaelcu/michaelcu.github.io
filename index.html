@@ -1,72 +1,542 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
+
 <head>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Website</title>
 
-.body{
-    font-family:Arial, Helvetica, sans-serif;
-    background-color:black;
-    color:white;
-}
+  <link rel="stylesheet" href="static/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
 
-.img{
-    width: 100%;
-    background-color: black;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-.divCircle{
-    border-radius:50%;
-}
+    body {
+      width: 100vw;
+      height: 150vh;
+      font-family: Arial, sans-serif;
+      user-select: none;
+      background-repeat: repeat-y;
 
-.leilani{
-    width:400px;
-    height:400px;
-    background-image: url("images/leilani/Leilani-Center-.png")
-}
+      animation: lightsOn 0.5s linear infinite;
+      animation-play-state: paused;
+      animation-delay: calc(var(--scroll) * -1s);
 
-.leilani:hover{
-    background-image: url("images/leilani/Leilani-Center-Hover.png")
-}
-
-.rustedHeart{
-    width: 100px;
-    height: 100px;
-    background-image: url("images/rustedHearts/RustedHeart.png")
-}
-
-.rustedHeart:hover{
-    background-image: url("images/rustedHearts/RustedHeartHover.png")
-}
-
-.aeschleus{
-    width:100px;
-    height:100px;
-    background-image: url("images/aeschleus/Aeschleus.png")
-}
-
-.aeschleus:hover{
-    background-image: url("images/aeschleus/AeschleusHover.png")
-}
-
-.grid{
-    display: grid;
-    margin: auto;
-    grid-template-columns: auto auto auto auto auto auto auto;
-    font-size: 50px;
-}
-
-</style>
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+      overflow-x: clip;
+    }
+  </style>
 </head>
 
-<html>
-    <body class="body">
-        <center>
-            <h1>Michael Cu</h1>
-            <div class="leilani"></div>
-            <div class ="grid">
-                <a href="Aeschleus.html" title="Aeschleus"><div class="divCircle aeschleus"></div></a>
-                <div><a href="Snake.html" title="Snake Game"><img class="circleBorder" src="images/NoStepSnek.png"></a></div>
-                <a href="https://rusted-hearts.github.io/" title="Rusted Hearts"><div class="divCircle rustedHeart"></div></a>
+<body>
+  <div id="lighting"></div>
+  <div id="confirmation-modal" class="hidden">
+    <div class="modal-background"></div>
+    <div class="modal-window">
+      <div class="modal-title">Want to see a trick?</div>
+      <div class="modal-choices">
+        <button id="github-confirm">Yes</button>
+        <button id="popup-close">No</button>
+      </div>
+    </div>
+  </div>
+  <div id="table-tracker">
+    <span id="table-tracker-text">Main</span>
+  </div>
+  <div id="main-table" class="table">
+    <div class="card main-card hidden">
+      <div class="card-inner">
+        <div class="card-face">
+          <img class="container-image" src="static/images/table/angry.png" />
+          <i class="bi bi-arrow-repeat card-function"></i>
+        </div>
+        <div class="card-face card-back">
+          <img class="container-image" src="static/images/table/happy.gif" />
+          <i class="bi bi-arrow-repeat card-function"></i>
+        </div>
+      </div>
+    </div>
+
+    <div id="github-card" class="card diagonal main-card hidden">
+      <div class="card-inner infinite-spin">
+        <div class="card-face card-front">
+          <img id="github-image" class="container-image" src="static/images/table/github.png" />
+          <i class="bi bi-arrow-repeat card-function"></i>
+        </div>
+        <div class="card-face card-face card-back">
+          <img id="github-image" class="container-image" src="static/images/table/github.png" />
+        </div>
+      </div>
+    </div>
+
+    <div class="card business horizontal main-card hidden">
+      <div class="card-inner">
+        <div class="card-face business">
+          <div class="content content-fill front">
+            <span>MC</span>
+            <i class="bi bi-arrow-repeat card-function horizontal"></i>
+          </div>
+        </div>
+        <div class="card-face card-back business">
+          <div class="content">
+            <div class="title-info">
+              <div class="name">Michael Cu</div>
+              <div class="title contact-info">Software Engineer</div>
+              <div id="email" class="email contact-info">
+                <button>
+                  <i class="bi bi-envelope"></i>michael.sy.cu@gmail.com
+                </button>
+              </div>
             </div>
-        </center>
-    </body>
+          </div>
+          <div class="content content-fill draggable-image">
+            <i class="bi bi-hand-index-thumb"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="function-buttons">
+      <div id="github-button" title="github" class="github-button function">
+        <a href="https://github.com/michaelcu">
+          <img class="github-image" src="static/images/table/github.png" /></a>
+      </div>
+      <div id="work-experience-button" class="work-experience-button function">
+        <button class="function-button">
+          <i class="bi bi-suitcase-lg function-icon"></i>
+        </button>
+      </div>
+      <div id="spotlight-toggle" class="lighting-button function">
+        <button class="function-button">
+          <i class="bi bi-lightbulb function-icon"></i>
+        </button>
+      </div>
+      <div id="main-reset-button" class="reset-page function">
+        <button class="function-button">
+          <i class="bi bi-arrow-counterclockwise function-icon"></i>
+        </button>
+      </div>
+    </div>
+    <div id="main-card-box" class="card-box"></div>
+  </div>
+  <div id="work-experience-table" class="table hidden">
+    <div id="work-exp-modal" class="hidden">
+      <div class="modal-background"></div>
+      <div class="modal-window large">
+        <div class="modal-title">Placeholder</div>
+        <div class="modal-work-title">Software Engineer</div>
+        <div class="modal-text"></div>
+        <div id="work-exp-modal-close" class="modal-close">
+          x
+        </div>
+      </div>
+    </div>
+
+    <div id="cerner" class="card horizontal business work-exp-card hidden">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <img class="container-image company-logo" src="static/images/table/cerner-logo.png" />
+          <i class="bi bi-window card-function horizontal"></i>
+        </div>
+        <div class="card-face card-back">
+          <img class="container-image" src="static/images/table/happy.gif" />
+        </div>
+      </div>
+    </div>
+    <div id="oracle-health" class="card horizontal business work-exp-card hidden">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <img class="container-image company-logo" src="static/images/table/oracle-health-logo.png" />
+          <i class="bi bi-window card-function horizontal"></i>
+        </div>
+        <div class="card-face card-back"></div>
+      </div>
+    </div>
+
+    <div class="function-buttons">
+      <div class="work-experience-button function">
+        <button class="function-button">
+          <i class="bi bi-suitcase-lg function-icon"></i>
+        </button>
+      </div>
+      <div class="lighting-button function">
+        <button class="function-button">
+          <i class="bi bi-lightbulb function-icon"></i>
+        </button>
+      </div>
+      <div id="work-exp-reset-button" class="reset-page function">
+        <button class="function-button">
+          <i class="bi bi-arrow-counterclockwise function-icon"></i>
+        </button>
+      </div>
+    </div>
+    <div id="work-exp-card-box" class="card-box"></div>
+  </div>
+  <script>
+    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+    // Tables
+    const mainTable = document.getElementById("main-table");
+    const workExperienceTable = document.getElementById(
+      "work-experience-table",
+    );
+
+    // Work Exp modal
+    const workExpModal = document.getElementById("work-exp-modal");
+    const workExpModalClose = document.getElementById("work-exp-modal-close");
+    workExpModalClose.addEventListener("pointerdown", () => {
+      workExpModal.classList.add("hidden");
+    });
+
+    // Main Table Cards
+    const cards = document.getElementsByClassName("card");
+    const mainCards = document.getElementsByClassName("main-card");
+
+    // Work Experience Table Cards
+    const workExpCards = document.getElementsByClassName("work-exp-card");
+
+    const email = document.getElementById("email");
+    const githubCard = document.getElementById("github-card");
+    const popup = document.getElementById("confirmation-modal");
+    const mainCardBox = document.getElementById("main-card-box");
+    const workExpCardBox = document.getElementById("work-exp-card-box");
+
+    const lighting = document.getElementById("lighting");
+
+    let isGithubCardClicked = false;
+    let currentTable = "Main";
+
+    // Scrolling Lighting Logic
+    window.addEventListener(
+      "scroll",
+      () => {
+        console.log(lighting);
+        lighting.style.setProperty(
+          "--scroll",
+          window.pageYOffset /
+          (document.body.offsetHeight - window.innerHeight),
+        );
+      },
+      false,
+    );
+
+    // Card boxes
+    mainCardBox.addEventListener("pointerdown", () => {
+      sendOutCards();
+    });
+    workExpCardBox.addEventListener("pointerdown", () => {
+      sendOutCards();
+    });
+
+    email.addEventListener("pointerdown", (e) => {
+      copyToClipboard(e);
+    });
+
+    // Function Buttons
+    const githubButton = document.getElementById("github-button");
+    const lightingButton = document.getElementById("spotlight-toggle");
+    const workExperienceButton = document.getElementById(
+      "work-experience-button",
+    );
+    const tableTrackerText = document.getElementById("table-tracker-text");
+
+    const functionButtons = document.getElementsByClassName("function");
+
+    for (let i = 0; i < functionButtons.length; i++) {
+      if (functionButtons[i].classList.contains("github-button")) {
+        functionButtons[i].addEventListener("pointerdown", (e) => {
+          githubPopup(e.target);
+        });
+      } else if (functionButtons[i].classList.contains("lighting-button")) {
+        functionButtons[i].addEventListener("pointerdown", (e) => {
+          if (lighting.classList.contains("full-bright")) {
+            lighting.classList.remove("full-bright");
+          } else {
+            lighting.classList.add("full-bright");
+          }
+        });
+      } else if (
+        functionButtons[i].classList.contains("work-experience-button")
+      ) {
+        functionButtons[i].addEventListener("pointerdown", (e) => {
+          tableSwap();
+        });
+      }
+    }
+
+    // Reset Function button
+    const mainResetButton = document.getElementById("main-reset-button");
+    mainResetButton.addEventListener("pointerdown", () => {
+      resetTable();
+    });
+
+    const workExpResetButton = document.getElementById(
+      "work-exp-reset-button",
+    );
+    workExpResetButton.addEventListener("pointerdown", () => {
+      resetTable();
+    });
+
+    // Github Popup
+    const popupConfirm = document.getElementById("github-confirm");
+    const popupClose = document.getElementById("popup-close");
+
+    popupConfirm.addEventListener("pointerdown", (e) => {
+      popup.classList.add("hidden");
+      if (isGithubCardClicked) {
+        console.log("card clicked");
+        flyOut();
+      } else {
+        openGithub();
+      }
+      isGithubCardClicked = false;
+    });
+
+    popupClose.addEventListener("pointerdown", (e) => {
+      popup.classList.add("hidden");
+    });
+
+    let dragging = false;
+    let currentX = 0;
+    let currentY = 0;
+    let originalX = 0;
+    let originalY = 0;
+    for (let i = 0; i < cards.length; i++) {
+      let offsetX = 0;
+      let offsetY = 0;
+
+      let totalOffsetX = 0;
+      let totalOffsetY = 0;
+
+      let startX = 0;
+      let startY = 0;
+
+      cards[i].style.transform = "translate(0px)";
+
+      /*cards[i].addEventListener("pointerdown", (e) => {
+        dragging = true;
+
+        originalX = e.clientX;
+        originalY = e.clientY;
+        offsetX = e.clientX - cards[i].offsetLeft;
+        offsetY = e.clientY - cards[i].offsetTop;
+
+        startX = e.offsetX - currentX;
+        startY = e.offsetY - currentY;
+
+        cards[i].setPointerCapture(e.pointerId);
+      });
+
+      cards[i].addEventListener("pointermove", (e) => {
+        if (!dragging) return;
+        cards[i].classList.add("is-dragging");
+        totalOffsetX = totalOffsetX;
+        totalOffsetY = totalOffsetY;
+        cards[i].style.left =
+          `${Math.max(0, Math.min(e.clientX - offsetX, window.innerWidth - cards[i].offsetWidth))}px`;
+        cards[i].style.top =
+          `${Math.max(0, Math.min(e.clientY - offsetY, window.innerHeight - cards[i].offsetHeight))}px`;
+      });*/
+
+      cards[i].addEventListener("pointerdown", (e) => {
+        dragging = true;
+
+        originalX = currentX;
+        originalY = currentY;
+        startX = e.clientX - currentX;
+        startY = e.clientY - currentY;
+
+        cards[i].style.transform = `translate(${startX}, ${startY})`;
+        cards[i].setPointerCapture(e.pointerId);
+      });
+
+      cards[i].addEventListener("pointermove", (e) => {
+        if (!dragging) return;
+        cards[i].classList.add("is-dragging");
+        currentX = e.clientX - startX;
+        currentY = e.clientY - startY;
+        cards[i].style.transform = `translate(${currentX}px, ${currentY}px)`;
+      });
+
+      cards[i].addEventListener("pointerup", (e) => {
+        dragging = false;
+        e.target.classList.remove("is-dragging");
+        startX = e.clientX;
+        startY = e.clientY;
+
+        // User Clicked
+        if (calcClickTrigger(e, startX, startY)) {
+          if (e.target.classList.contains("work-exp-card")) {
+            workExpModalController(e.currentTarget);
+          } else if (e.target.classList.contains("business")) {
+            flipCardOnce(e.target.children[0]);
+          } else if (e.target.classList.contains("diagonal")) {
+            isGithubCardClicked = true;
+            githubPopup();
+          } else {
+            flipCard(e.target.children[0]);
+          }
+        }
+        stopDraggingCard(e, dragging);
+      });
+      cards[i].addEventListener("pointercancel", stopDraggingCard);
+    }
+
+    function calcClickTrigger(e, startX, startY) {
+      return Math.abs(currentX - originalX + currentY - originalY) < 100;
+    }
+
+    function stopDraggingCard(e, isDragging) {
+      isDragging = false;
+      e.target.classList.remove("is-dragging");
+
+      if (e.target.hasPointerCapture(e.pointerId)) {
+        e.target.releasePointerCapture(e.pointerId);
+      }
+    }
+
+    function flipCard(e) {
+      e.classList.toggle("is-flipped");
+    }
+
+    function flipCardOnce(e) {
+      e.classList.add("is-flipped");
+    }
+
+    function openGithub() {
+      window.open("https://github.com/michaelcu", "_blank", "noopener");
+    }
+
+    async function flyOut() {
+      if (!githubCard.classList.contains("fly-out")) {
+        githubCard.classList.add("fly-out");
+        await sleep(1000);
+        openGithub();
+        githubCard.classList.add("hidden");
+      }
+    }
+
+    function githubPopup() {
+      popup.classList.remove("hidden");
+    }
+
+    function tableSwap() {
+      if (currentTable !== "Main") {
+        mainTable.classList.remove("hidden");
+        workExperienceTable.classList.add("hidden");
+        currentTable = "Main";
+        tableTrackerText.textContent = currentTable;
+      } else if (currentTable === "Main") {
+        mainTable.classList.add("hidden");
+        workExperienceTable.classList.remove("hidden");
+        currentTable = "Work Experience";
+        tableTrackerText.textContent = currentTable;
+      }
+    }
+
+    function copyToClipboard(e) {
+      var text = "";
+
+      if (e.currentTarget.id === "email") {
+        text = "michael.sy.cu@gmail.com";
+      }
+      try {
+        if (text) {
+          navigator.clipboard.writeText(text);
+          console.log("Text successfully copied to clipboard!");
+        } else {
+          return;
+        }
+      } catch (err) {
+        console.error("Failed to copy text: ", err);
+      }
+    }
+
+    async function sendOutCards() {
+      var newX = 0;
+      if (currentTable === "Main") {
+        for (let i = 0; i < mainCards.length; i++) {
+          newX = -500 + i * 500;
+          mainCards[i].classList.remove("hidden");
+          mainCards[i].classList.add("deal");
+          mainCards[i].animate(
+            [
+              {
+                left: mainCards[i].style.left || "45%",
+                top: mainCards[i].style.top || "65%",
+              },
+              { left: `${70 - i * 25 + "%"}`, top: "15%" },
+            ],
+            {
+              duration: 500,
+              easing: "ease-out",
+              fill: "forwards",
+            },
+          );
+          await sleep(200);
+          mainCards[i].classList.remove("deal");
+        }
+        mainCardBox.classList.add("hidden");
+      } else if (currentTable === "Work Experience") {
+        for (let i = 0; i < workExpCards.length; i++) {
+          workExpCards[i].classList.remove("hidden");
+          workExpCards[i].style.left = 55 - i * 25 + "%";
+          workExpCards[i].style.top = "15%";
+        }
+        workExpCardBox.classList.add("hidden");
+      }
+    }
+
+    function resetTable() {
+      if (currentTable === "Main") {
+        for (let i = 0; i < cards.length; i++) {
+          mainCards[i].classList.add("hidden");
+          mainCards[i].children[0].classList.remove("is-flipped");
+          mainCardBox.classList.remove("hidden");
+        }
+      } else if (currentTable === "Work Experience") {
+        for (let i = 0; i < workExpCards.length; i++) {
+          workExpCards[i].classList.add("hidden");
+          workExpCards[i].children[0].classList.remove("is-flipped");
+          workExpCardBox.classList.remove("hidden");
+        }
+      }
+    }
+
+    function workExpModalController(e) {
+      if (e.id === "cerner") {
+        setModalContent(e, "cerner");
+        workExpModal.classList.remove("hidden");
+      } else if (e.id === "oracle-health") {
+        setModalContent(e, "oracle-health");
+        workExpModal.classList.remove("hidden");
+      }
+    }
+
+    function setModalContent(e, cardName) {
+      if (cardName === "cerner") {
+        workExpModal.classList.add("cerner");
+        workExpModal.classList.remove("oracle-health");
+        workExpModal.getElementsByClassName("modal-title")[0].textContent =
+          "Cerner";
+        workExpModal.getElementsByClassName("modal-text")[0].textContent =
+          "Developed and maintained software applications for hospital analytics.\n\nUsed RESTFUL APIs to query data from health database for use in analytic data for Physicians and Nurses.\n\nResponsible for deployment and release of live software";
+      } else if (cardName === "oracle-health") {
+        workExpModal.classList.remove("cerner");
+        workExpModal.classList.add("oracle-health");
+        workExpModal.getElementsByClassName("modal-title")[0].textContent =
+          "Oracle Health";
+        workExpModal.getElementsByClassName("modal-text")[0].textContent =
+          "Developed and maintained software applications for hospital analytics.\n\nDeveloped software application for executive-facing hospital analytics.\n\nResponsible for deployment and release of live software";
+      }
+    }
+  </script>
+</body>
+
 </html>
