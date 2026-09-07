@@ -319,31 +319,6 @@
 
       cards[i].style.transform = "translate(0px)";
 
-      /*cards[i].addEventListener("pointerdown", (e) => {
-        dragging = true;
-
-        originalX = e.clientX;
-        originalY = e.clientY;
-        offsetX = e.clientX - cards[i].offsetLeft;
-        offsetY = e.clientY - cards[i].offsetTop;
-
-        startX = e.offsetX - currentX;
-        startY = e.offsetY - currentY;
-
-        cards[i].setPointerCapture(e.pointerId);
-      });
-
-      cards[i].addEventListener("pointermove", (e) => {
-        if (!dragging) return;
-        cards[i].classList.add("is-dragging");
-        totalOffsetX = totalOffsetX;
-        totalOffsetY = totalOffsetY;
-        cards[i].style.left =
-          `${Math.max(0, Math.min(e.clientX - offsetX, window.innerWidth - cards[i].offsetWidth))}px`;
-        cards[i].style.top =
-          `${Math.max(0, Math.min(e.clientY - offsetY, window.innerHeight - cards[i].offsetHeight))}px`;
-      });*/
-
       cards[i].addEventListener("pointerdown", (e) => {
         dragging = true;
 
@@ -486,8 +461,23 @@
       } else if (currentTable === "Work Experience") {
         for (let i = 0; i < workExpCards.length; i++) {
           workExpCards[i].classList.remove("hidden");
-          workExpCards[i].style.left = 55 - i * 25 + "%";
-          workExpCards[i].style.top = "15%";
+          workExpCards[i].classList.add("deal");
+          workExpCards[i].animate(
+            [
+              {
+                left: workExpCards[i].style.left || "45%",
+                top: workExpCards[i].style.top || "65%",
+              },
+              { left: `${70 - i * 25 + "%"}`, top: "15%" },
+            ],
+            {
+              duration: 500,
+              easing: "ease-out",
+              fill: "forwards",
+            },
+          );
+          await sleep(200);
+          workExpCards[i].classList.remove("deal");
         }
         workExpCardBox.classList.add("hidden");
       }
